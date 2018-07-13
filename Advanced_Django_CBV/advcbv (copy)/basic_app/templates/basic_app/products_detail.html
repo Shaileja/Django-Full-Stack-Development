@@ -1,0 +1,19 @@
+{% extends "basic_app/basic_app_base.html" %}
+{% load staticfiles %}
+{% load static %}
+{% block body_block %}
+  <div class="jumbotron">
+    <h1>Welcome to the Product Detail Page</h1>
+    <h2>Product Details:</h2>
+    <p>Id_num: {{school_details.id}}</p>
+    <p>Name: {{school_details.name}}</p>
+    <p>Principal: {{school_details.price}}</p>
+    <p>Principal: {{school_details.picture}}</p>
+    <img src="/static/{{school_details.picture}}"  alt="Uh Oh, didn't show!" height="100" width="100">	
+  </div>
+  <div class="container">
+    <p><a class='btn btn-warning' href="{% url 'basic_app:update' pk=school_details.pk %}">Update</a></p>
+<p><a class='btn btn-warning' href="{% url 'basic_app:delete' pk=school_details.pk %}">Delete</a></p>
+  </div>
+
+{% endblock %}

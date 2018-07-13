@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Django Level Two</title>
+    <link rel="stylesheet" href="{% static "css/mystyle.css" %}"/>
+  </head>
+  <body>
+
+    <h2>Here are your access records:</h2>
+    <div class="djangtwo">
+      {% if access_records %}
+          <table>
+            <thead>
+              <li>
+                <ol>
+              <th>ID</th>
+              <th>Site Name</th>
+              <th>Date Accessed</th>
+            </ol>
+            </li>
+            </thead>
+
+            {% for acc in access_records %}
+              <tr>
+                <td>{{ acc.id }}</td>
+                <td>{{ acc.name }}</td>
+                <td>{{ acc.date }}</td>
+              </tr>
+            {% endfor %}
+        </table>
+
+      {% else %}
+        <p>No Access Records. Table Not Created.</p>
+      {% endif %}
+    </div>
+    <h2>Here are your webpage records:</h2>
+    <div class="djangtwonew">
+      {% if webpage %}
+          <table>
+            <thead>
+              <th>ID</th>
+              <th>Site Name</th>
+              <th>url</th>
+                <th>topic</th>
+            </thead>
+
+            {% for acc in webpage %}
+              <tr>
+                <td>{{ acc.id }}</td>
+                <td>{{ acc.name }}</td>
+                <td>{{ acc.topic }}</td>
+                <td>{{ acc.url }}</td>
+              </tr>
+            {% endfor %}
+        </table>
+
+      {% else %}
+        <p>No Access Records. Table Not Created.</p>
+      {% endif %}
+    </div>
+
+
+
+  </body>
+</html>
